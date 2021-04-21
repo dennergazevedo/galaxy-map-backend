@@ -1,9 +1,3 @@
-import 'dotenv/config';
-
-/** Multer */
-import * as multer from 'multer';
-import multerConfig from './config/multer';
-
 // CONTROLLERS
 import { Router } from 'express';
 import UserController from "./app/controllers/UserController";
@@ -11,9 +5,6 @@ import RocketController from "./app/controllers/RocketController";
 import SollarSystemController from './app/controllers/SollarSystemController';
 import PlanetController from './app/controllers/PlanetController';
 import TravelController from './app/controllers/TravelController';
-
-/** Multer Init */
-const upload = multer.default(multerConfig);
 
 export class Routes {
   public userController: UserController = new UserController();
