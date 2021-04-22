@@ -21,7 +21,7 @@ export default class RocketController {
     con.query(
       `INSERT INTO planets (name, image, distance, mass, position, size, sollar_systems) VALUES ('${name}', '${image}', '${distance}', '${mass}', '${position}', '${size}', '${sollar_systems}')`, 
       (err, rows) => {
-      if (err) throw err
+      if (err) return res.status(500).json(err)
       return res.status(200).json(`Planet ${name} created with success!`)
     })
   }

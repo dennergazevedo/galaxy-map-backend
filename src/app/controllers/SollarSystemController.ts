@@ -19,7 +19,7 @@ export default class SollarSystemController {
     con.query(
       `INSERT INTO sollar_systems (name, direction, location, radius, star) VALUES ('${name}', '${direction}', '${location}, '${radius}', '${star}'')`, 
       (err, rows) => {
-      if (err) throw err
+      if (err) return res.status(500).json(err)
       return res.status(200).json(`Sollar System ${name} created with success!`)
     })
   }

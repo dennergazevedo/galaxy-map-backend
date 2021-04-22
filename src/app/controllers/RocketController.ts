@@ -19,7 +19,7 @@ export default class RocketController {
     con.query(
       `INSERT INTO rockets (name, speed, cost, image, capacity) VALUES ('${name}', '${speed}', '${cost}, '${image}', '${capacity}'')`, 
       (err, rows) => {
-      if (err) throw err
+      if (err) return res.status(500).json(err)
       return res.status(200).json(`Rocket ${name} created with success!`)
     })
   }

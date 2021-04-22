@@ -24,7 +24,7 @@ export default class TravelController {
     con.query(
       `INSERT INTO travel (cost, destiny_planet, distance, rockets_name, start_planet, user_mail, date_start, date_arrival) VALUES ('${cost}', '${destiny_planet}', '${distance}', '${rockets_name}', '${start_planet}', '${user_mail}', '${date_start}', '${date_arrival}')`, 
       (err, rows) => {
-      if (err) throw err
+      if (err) return res.status(500).json(err)
       return res.status(200).json(`Travel created with success!`)
     })
   }

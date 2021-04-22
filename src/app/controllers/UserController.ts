@@ -19,7 +19,7 @@ export default class UserController {
     con.query(
       `INSERT INTO users (email, name, password) VALUES ('${email}', '${name}', '${hash}')`, 
       (err, rows) => {
-      if (err) throw err
+      if (err) return res.status(500).json(err);
       return res.status(200).json(`User ${name} created with success!`)
     })
   }
